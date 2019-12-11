@@ -45,7 +45,11 @@ const nuxtConfig: Configuration = {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
-  buildModules: ['@nuxt/typescript-build']
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/dotenv'],
+
+  env: {
+    PIXABAY_APIKEY: process.env.PIXABAY_APIKEY!
+  }
 }
 
 export default nuxtConfig
