@@ -4,6 +4,7 @@
       v-for="(image, i) in images"
       :key="image.id"
       class="image"
+      :class="{ selected: selected == i }"
       @click="onClickImage(i)"
     >
       <img :src="image.previewURL" />
@@ -27,7 +28,11 @@ export default Vue.extend({
     images: {
       type: Array,
       default: () => []
-    } as PropOptions<ImageItem[]>
+    } as PropOptions<ImageItem[]>,
+    selected: {
+      type: Number,
+      default: 0
+    } as PropOptions<Number>
   },
   methods: {
     onClickImage(i: number) {
@@ -37,7 +42,7 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .HorizontalImageList {
   &__root {
     width: 100%;
@@ -53,10 +58,19 @@ export default Vue.extend({
   height: 100px;
   margin-right: 16px;
   cursor: pointer;
+  position: relative;
+
   > img {
     width: 100%;
     height: 100%;
+    filter: grayscale(100%);
+    opacity: 0.8;
     object-fit: cover;
+  }
+
+  &.selected > img {
+    filter: grayscale(0%);
+    opacity: 1;
   }
 }
 </style>

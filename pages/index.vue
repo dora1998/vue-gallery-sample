@@ -2,9 +2,9 @@
   <div class="container">
     <img
       class="preview-img"
-      src="https://pixabay.com/get/55e0d340485aa814f6da8c7dda79367c1739d8ed57516c4870287dd49544c15cbe_1280.jpg"
+      :src="imgs.length > 0 ? imgs[selected].largeImageURL : ''"
     />
-    <horizontal-image-list :images="imgs" />
+    <horizontal-image-list :images="imgs" :selected="selected" />
   </div>
 </template>
 
@@ -20,6 +20,12 @@ export default Vue.extend({
   data() {
     return {
       imgs: []
+    }
+  },
+
+  computed: {
+    selected() {
+      return 'id' in this.$route.query ? Number(this.$route.query.id) - 1 : 0
     }
   },
 
