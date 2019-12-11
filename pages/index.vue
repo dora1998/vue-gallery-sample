@@ -1,69 +1,36 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        nuxt-ts-scaffold
-      </h1>
-      <h2 class="subtitle">
-        Scaffold for a project using Nuxt.js with TypeScript
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <search-box />
+    <img
+      class="preview-img"
+      src="https://pixabay.com/get/55e0d340485aa814f6da8c7dda79367c1739d8ed57516c4870287dd49544c15cbe_1280.jpg"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import Logo from '~/components/Logo.vue'
+import SearchBox from '@/components/SearchBox.vue'
 
 export default Vue.extend({
   components: {
-    Logo
+    SearchBox
   }
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
 .container {
   margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  flex-direction: column;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.preview-img {
+  flex-grow: 1;
+  object-fit: contain;
 }
 </style>
