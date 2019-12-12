@@ -93,24 +93,24 @@ export default Vue.extend({
   }
 }
 .image {
-  min-width: 100px;
-  width: 100px;
+  min-width: 50px;
   height: 100px;
-  margin-right: 16px;
   cursor: pointer;
   position: relative;
 
   > img {
     width: 100%;
     height: 100%;
-    filter: grayscale(100%);
     opacity: 0.8;
     object-fit: cover;
   }
 
-  &.selected > img {
-    filter: grayscale(0%);
-    opacity: 1;
+  &.selected {
+    min-width: 100px;
+    margin: 0 16px;
+    > img {
+      opacity: 1;
+    }
   }
 }
 </style>
