@@ -52,7 +52,7 @@ export default Vue.extend({
   margin: 0 auto;
   width: 100%;
   max-width: 960px;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }

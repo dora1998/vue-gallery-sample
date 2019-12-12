@@ -17,14 +17,6 @@ html {
   box-sizing: border-box;
 }
 
-html,
-body,
-#__nuxt,
-#__layout,
-.layout_root {
-  height: 100%;
-}
-
 *,
 *:before,
 *:after {
