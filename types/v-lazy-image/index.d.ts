@@ -2,7 +2,7 @@
 // Project: https://github.com/alexjoverm/v-lazy-image
 
 declare module 'v-lazy-image' {
-  import { Component, PluginObject } from 'vue'
+  import { Component, PluginObject, PropOptions } from 'vue'
 
   interface Data {
     observer: IntersectionObserver | null
@@ -17,11 +17,11 @@ declare module 'v-lazy-image' {
     srcsetImage: () => string | boolean
   }
   interface Props {
-    src: string
-    srcPlaceholder: string
-    srcset: string
-    intersectionOptions: IntersectionObserverInit
-    usePicture: boolean
+    src: PropOptions<string>
+    srcPlaceholder: PropOptions<string>
+    srcset: PropOptions<string>
+    intersectionOptions: PropOptions<IntersectionObserverInit>
+    usePicture: PropOptions<boolean>
   }
   const VLazyImageComponent: Component<Data, Methods, Computed, Props>
 
