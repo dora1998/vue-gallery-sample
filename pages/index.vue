@@ -40,7 +40,7 @@ export default Vue.extend({
 
   async mounted() {
     const res: any = await this.$http.$get(
-      `https://pixabay.com/api/?key=${process.env.PIXABAY_APIKEY}&q=yellow+flowers&image_type=photo`
+      `https://pixabay.com/api/?key=${process.env.PIXABAY_APIKEY}&q=yellow+flowers&image_type=photo&per_page=50`
     )
     this.imgs = res.hits
   }
