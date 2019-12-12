@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout_root">
     <nuxt />
   </div>
 </template>
@@ -15,6 +15,14 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+html,
+body,
+#__nuxt,
+#__layout,
+.layout_root {
+  height: 100%;
 }
 
 *,

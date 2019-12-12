@@ -4,7 +4,9 @@
       class="preview-img"
       :src="imgs.length > 0 ? imgs[selected].largeImageURL : ''"
     />
-    <horizontal-image-list :images="imgs" :selected="selected" />
+    <div class="list">
+      <horizontal-image-list :images="imgs" :selected="selected" />
+    </div>
   </div>
 </template>
 
@@ -50,7 +52,7 @@ export default Vue.extend({
   margin: 0 auto;
   width: 100%;
   max-width: 960px;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -58,5 +60,8 @@ export default Vue.extend({
 .preview-img {
   flex-grow: 1;
   object-fit: contain;
+}
+.list {
+  flex-basis: 100px;
 }
 </style>

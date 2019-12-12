@@ -1,8 +1,9 @@
 <template>
-  <div :class="`${$options.name}__root`">
+  <div ref="container" :class="`${$options.name}__root`">
     <div
       v-for="(image, i) in images"
       :key="image.id"
+      :ref="`img-${i}`"
       class="image"
       :class="{ selected: selected == i }"
       @click="onClickImage(i)"
@@ -24,6 +25,7 @@ export interface ImageItem {
 
 export default Vue.extend({
   name: 'HorizontalImageList',
+
   props: {
     images: {
       type: Array,
@@ -32,11 +34,48 @@ export default Vue.extend({
     selected: {
       type: Number,
       default: 0
-    } as PropOptions<Number>
+    } as PropOptions<number>
   },
+
+  watch: {
+    images: {
+      async handler() {
+        await new Promise(resolve => setTimeout(resolve, 500))
+        this.moveToSelectedImg(this.selected)
+      }
+    }
+  },
+
   methods: {
     onClickImage(i: number) {
       this.$router.push(`/?id=${i + 1}`)
+    },
+    getImagePos(idx: number) {
+      const imgRefs = this.$refs[`img-${idx}`]
+      if (Array.isArray(imgRefs) && imgRefs.length > 0) {
+        const imgRef = imgRefs[0] as Element
+        return imgRef.getBoundingClientRect()
+      } else {
+        return null
+      }
+    },
+    moveToSelectedImg(idx: number) {
+      // 画像のdivの位置を取得
+      const selectedPos = this.getImagePos(idx)
+      if (selectedPos === null) return
+
+      // 横スクロールリストの箱自体の位置を取得
+      const containerRef = this.$refs.container as Element
+      const containerRect = containerRef.getBoundingClientRect()
+
+      // リスト内での画像中央位置を計算
+      // * leftはページ全体での座標なので、コンテナ内での相対座標にするためにコンテナの左端座標を引く
+      const centerPos =
+        selectedPos.left + selectedPos.width / 2 - containerRect.left
+      // セットすべきscrollLeftを計算
+      const scrollLeftPos = centerPos - containerRect.width / 2
+
+      containerRef.scrollLeft = scrollLeftPos
     }
   }
 })
@@ -55,6 +94,7 @@ export default Vue.extend({
 }
 .image {
   min-width: 100px;
+  width: 100px;
   height: 100px;
   margin-right: 16px;
   cursor: pointer;
