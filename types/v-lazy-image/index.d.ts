@@ -2,7 +2,7 @@
 // Project: https://github.com/alexjoverm/v-lazy-image
 
 declare module 'v-lazy-image' {
-  import { Component } from 'vue'
+  import { Component, PluginObject } from 'vue'
 
   interface Data {
     observer: IntersectionObserver | null
@@ -26,4 +26,5 @@ declare module 'v-lazy-image' {
   const VLazyImageComponent: Component<Data, Methods, Computed, Props>
 
   export default VLazyImageComponent
+  export const VLazyImagePlugin: PluginObject<any>
 }
