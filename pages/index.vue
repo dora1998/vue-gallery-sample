@@ -1,9 +1,12 @@
 <template>
   <div class="container">
-    <img
-      class="preview-img"
-      :src="imgs.length > 0 ? imgs[selected].largeImageURL : ''"
-    />
+    <div class="preview-img">
+      <v-lazy-image
+        v-if="imgs.length > 0"
+        :src="imgs[selected].largeImageURL"
+        :src-placeholder="imgs[selected].previewURL"
+      />
+    </div>
     <div class="list">
       <horizontal-image-list :images="imgs" :selected="selected" />
     </div>
@@ -12,11 +15,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import VLazyImage from 'v-lazy-image'
 import HorizontalImageList from '@/components/HorizontalImageList.vue'
 
 export default Vue.extend({
   components: {
-    HorizontalImageList
+    HorizontalImageList,
+    VLazyImage
   },
 
   data() {
@@ -59,9 +64,17 @@ export default Vue.extend({
 
 .preview-img {
   flex-grow: 1;
-  object-fit: contain;
-}
-.list {
-  flex-basis: 100px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .v-lazy-image {
+    filter: blur(5px);
+    &.v-lazy-image-loaded {
+      filter: blur(0);
+    }
+  }
 }
 </style>

@@ -8,13 +8,14 @@
       :class="{ selected: selected == i }"
       @click="onClickImage(i)"
     >
-      <img :src="image.previewURL" />
+      <v-lazy-image :src="image.previewURL" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue, { PropOptions } from 'vue'
+import VLazyImage from 'v-lazy-image'
 
 export interface ImageItem {
   id: number
@@ -25,6 +26,10 @@ export interface ImageItem {
 
 export default Vue.extend({
   name: 'HorizontalImageList',
+
+  components: {
+    VLazyImage
+  },
 
   props: {
     images: {
@@ -85,7 +90,7 @@ export default Vue.extend({
 .HorizontalImageList {
   &__root {
     width: 100%;
-    height: 100px;
+    height: 116px;
     overflow-x: auto;
     margin-top: 16px;
     display: flex;
@@ -112,5 +117,9 @@ export default Vue.extend({
       opacity: 1;
     }
   }
+}
+
+.v-lazy-image {
+  background-color: #ccc;
 }
 </style>
