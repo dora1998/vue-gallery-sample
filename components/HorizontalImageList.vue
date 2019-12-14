@@ -106,16 +106,12 @@ export default Vue.extend({
   > img {
     width: 100%;
     height: 100%;
-    opacity: 0.8;
     object-fit: cover;
   }
 
   &.selected {
     min-width: 100px;
     margin: 0 16px;
-    > img {
-      opacity: 1;
-    }
   }
 }
 
