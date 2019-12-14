@@ -6,6 +6,7 @@
         :src="imgs[selected].largeImageURL"
         :src-placeholder="imgs[selected].previewURL"
       />
+      <img class="pixabay-logo" src="~/assets/pixabay-logo.svg" />
     </div>
     <div class="list">
       <horizontal-image-list :images="imgs" :selected="selected" />
@@ -64,6 +65,8 @@ export default Vue.extend({
 
 .preview-img {
   flex-grow: 1;
+  position: relative;
+
   img {
     width: 100%;
     height: 100%;
@@ -75,6 +78,14 @@ export default Vue.extend({
     &.v-lazy-image-loaded {
       filter: blur(0);
     }
+  }
+
+  .pixabay-logo {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    width: 96px;
+    height: auto;
   }
 }
 </style>
