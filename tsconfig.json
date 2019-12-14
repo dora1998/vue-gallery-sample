@@ -12,8 +12,7 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"],
-      "@/*": ["./*"],
-      "v-lazy-image": ["types/v-lazy-image"]
+      "@/*": ["./*"]
     },
     "types": ["@types/node", "@nuxt/types", "@nuxt/http/types"]
   },
