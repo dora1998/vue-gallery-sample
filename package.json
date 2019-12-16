@@ -24,7 +24,7 @@
     "@nuxt/http": "^0.3.8",
     "@nuxt/typescript-runtime": "^0.2.4",
     "nuxt": "^2.0.0",
-    "v-lazy-image": "dora1998/v-lazy-image#add-type-definitions"
+    "v-lazy-image": "dora1998/v-lazy-image#master"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.3.4",
