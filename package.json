@@ -1,7 +1,7 @@
 {
-  "name": "nuxt-ts-scaffold",
+  "name": "vue-gallery-sample",
   "version": "1.0.0",
-  "description": "Scaffold for a project using Nuxt.js with TypeScript",
+  "description": "Image Gallery made with Vue.js",
   "author": "dora1998",
   "private": true,
   "scripts": {

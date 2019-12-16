@@ -1,10 +1,18 @@
 # nuxt-ts-scaffold
 
-This is a scaffold to create a project using Nuxt.js (SPA mode) with TypeScript.
+Image Gallery made with Vue.js
+
+## Configuration
+
+1. Make a copy of `.env.sample` as `.env`
+
+2. Create pixabay account and get pixabay API key.
+
+3. Set API key in `.env`
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ yarn install
 
