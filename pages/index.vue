@@ -6,7 +6,9 @@
         :src="imgs[selected].largeImageURL"
         :src-placeholder="imgs[selected].previewURL"
       />
-      <img class="pixabay-logo" src="~/assets/pixabay-logo.svg" />
+      <a href="https://pixabay.com/" target="_blank">
+        <img class="pixabay-logo" src="~/assets/pixabay-logo.svg" />
+      </a>
     </div>
     <div class="list">
       <horizontal-image-list :images="imgs" :selected="selected" />
