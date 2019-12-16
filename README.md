@@ -1,4 +1,4 @@
-# nuxt-ts-scaffold
+# vue-gallry-sample
 
 Image Gallery made with Vue.js
 
